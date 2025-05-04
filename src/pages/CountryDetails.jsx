@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React,{ useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getCountryByCode } from '../services/api';
 import CountryDetail from '../components/CountryDetail';
@@ -17,8 +17,7 @@ const CountryDetails = () => {
         const data = await getCountryByCode(code);
         setCountry(data);
         setError(null);
-      } catch (error) {
-        console.error('Error fetching country details:', error);
+      } catch (error) {        
         setError('Country not found');
       } finally {
         setIsLoading(false);

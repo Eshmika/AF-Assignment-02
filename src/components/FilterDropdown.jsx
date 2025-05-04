@@ -1,3 +1,5 @@
+import React from 'react';
+
 const FilterDropdown = ({ onRegionChange }) => {
     const regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
   

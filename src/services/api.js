@@ -8,7 +8,6 @@ export const getAllCountries = async () => {
     const response = await axios.get(`${BASE_URL}/all`);
     return response.data;
   } catch (error) {
-    console.error('Error fetching all countries:', error);
     throw error;
   }
 };
@@ -18,8 +17,7 @@ export const getCountriesByName = async (name) => {
   try {
     const response = await axios.get(`${BASE_URL}/name/${name}`);
     return response.data;
-  } catch (error) {
-    console.error(`Error searching for country ${name}:`, error);
+  } catch (error) {   
     return [];
   }
 };
@@ -29,8 +27,7 @@ export const getCountriesByRegion = async (region) => {
   try {
     const response = await axios.get(`${BASE_URL}/region/${region}`);
     return response.data;
-  } catch (error) {
-    console.error(`Error fetching countries in region ${region}:`, error);
+  } catch (error) {    
     throw error;
   }
 };
@@ -40,8 +37,7 @@ export const getCountryByCode = async (code) => {
   try {
     const response = await axios.get(`${BASE_URL}/alpha/${code}`);
     return response.data[0];
-  } catch (error) {
-    console.error(`Error fetching country with code ${code}:`, error);
+  } catch (error) {    
     throw error;
   }
 };

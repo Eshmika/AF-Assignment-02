@@ -1,14 +1,16 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Home from './pages/Home';
-import CountryDetails from './pages/CountryDetails';
-import NotFound from './pages/NotFound';
-import Login from './pages/Login'; 
-import { AuthProvider } from './context/AuthContext'; 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import CountryDetails from "./pages/CountryDetails";
+import NotFound from "./pages/NotFound";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Favorites from "./pages/Favorites";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   return (
-    <AuthProvider> 
+    <AuthProvider>
       <Router>
         <div className="min-h-screen">
           <Header />
@@ -16,7 +18,9 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/country/:code" element={<CountryDetails />} />
-              <Route path="/login" element={<Login />} /> 
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/favorites" element={<Favorites />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>

@@ -1,6 +1,23 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CountryCard = ({ country }) => {
+  // Helper function to format population
+  const formatPopulation = (population) => {
+    if (population === undefined || population === null) {
+      return 'N/A';
+    }
+    return population.toLocaleString();
+  };
+
+  // Helper function to get capital
+  const getCapital = (capital) => {
+    if (!capital || capital.length === 0) {
+      return 'N/A';
+    }
+    return capital[0];
+  };
+
   return (
     <Link to={`/country/${country.cca3}`} className="block">
       <div className="bg-gray-900 rounded-lg shadow-md border-2 border-gray-900 overflow-hidden h-full hover:transform hover:scale-105 transition-transform duration-300 hover:bg-gray-900 hover:shadow-gray-900 hover:shadow-lg">
@@ -13,10 +30,10 @@ const CountryCard = ({ country }) => {
           <h2 className="text-lg font-bold mb-2 text-white">
             {country.name.common}
           </h2>
-          <div className="text-sm text-white">
-            <p><span className="font-semibold">Population:</span> {country.population.toLocaleString()}</p>
-            <p><span className="font-semibold">Region:</span> {country.region}</p>            
-            <p><span className="font-semibold">Capital:</span> {country.capital?.[0] || 'N/A'}</p>
+          <div className="text-sm text-gray-300">
+            <p className="font-semibold">Population: <span className="font-normal">{formatPopulation(country.population)}</span></p>
+            <p className="font-semibold">Region: <span className="font-normal">{country.region}</span></p>
+            <p className="font-semibold">Capital: <span className="font-normal">{getCapital(country.capital)}</span></p>
           </div>
         </div>
       </div>
