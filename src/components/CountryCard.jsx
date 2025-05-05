@@ -19,8 +19,8 @@ const CountryCard = ({ country }) => {
   };
 
   return (
-    <Link to={`/country/${country.cca3}`} className="block">
-      <div className="bg-gray-900 rounded-lg shadow-md border-2 border-gray-900 overflow-hidden h-full hover:transform hover:scale-105 transition-transform duration-300 hover:bg-gray-900 hover:shadow-gray-900 hover:shadow-lg">
+    <Link to={`/country/${country.cca3}`} className="block group">
+      <div className="bg-gray-900 rounded-lg shadow-md border-2 border-gray-900 overflow-hidden h-full hover:transform hover:scale-105 transition-transform duration-300 hover:bg-gray-900 hover:shadow-gray-900 hover:shadow-lg relative">
         <img 
           src={country.flags.svg} 
           alt={`Flag of ${country.name.common}`}
@@ -36,6 +36,7 @@ const CountryCard = ({ country }) => {
             <p className="font-semibold">Capital: <span className="font-normal">{getCapital(country.capital)}</span></p>
           </div>
         </div>
+        <div className="absolute bottom-0 left-0 w-0 h-1 bg-blue-500 transition-all duration-300 group-hover:w-full"></div>
       </div>
     </Link>
   );

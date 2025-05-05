@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CountryCard from "./CountryCard";
 
 const CountryList = ({ countries, isLoading }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Set a small delay before showing the cards for a better transition effect
+    if (!isLoading && countries.length > 0) {
+      const timer = setTimeout(() => {
+        setIsVisible(true);
+      }, 100);
+      
+      return () => clearTimeout(timer);
+    }
+    return () => setIsVisible(false);
+  }, [countries, isLoading]);
+
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-64">
@@ -26,8 +40,18 @@ const CountryList = ({ countries, isLoading }) => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-      {countries.map((country) => (
-        <CountryCard key={country.cca3} country={country} />
+      {countries.map((country, index) => (
+        <div 
+          key={country.cca3}
+          className={`transform transition-all duration-1000 ease-in-out ${
+            isVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-8'
+          }`}
+          style={{ transitionDelay: `${index * 150}ms` }}
+        >
+          <CountryCard country={country} />
+        </div>
       ))}
     </div>
   );
