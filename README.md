@@ -145,31 +145,17 @@ Backend API
 - DELETE /api/favorites/:countryCode - Remove a country from favorites (protected)
 
 # Challenges and Solutions
-Challenge 1: Testing React Components with External Dependencies
-Problem: Testing React components that rely on external APIs and contexts was challenging.
+Challenge 1: Handling inconsistent data formats from the REST Countries API
+Solution: Created helper functions to normalize data
 
-Solution: Implemented proper mocking strategies using Jest and created wrapper components for providing necessary context in tests. Used jest-fetch-mock to mock API calls.
+Challenge 2: Creating a consistent experience across different device sizes
+Solution: Utilized Tailwind CSS's responsive utilities and implemented a mobile-first approach
 
-Challenge 2: Authentication and Protected Routes
-Problem: Implementing secure authentication and protected routes while maintaining good user experience.
-
-Solution: Created a comprehensive AuthContext with JWT token management and local storage persistence. Implemented proper error handling and user feedback.
-
-Challenge 3: Handling API Rate Limiting
-Problem: The REST Countries API occasionally has rate limiting which could affect user experience.
-
-Solution: Implemented proper error handling, loading states, and user feedback. Added caching mechanisms to reduce the number of API calls.
-
-Challenge 4: Jest Configuration with ESM
-Problem: Setting up Jest with ES modules and modern React was challenging.
-
-Solution: Created a proper Babel and Jest configuration that supports ES modules, React hooks, and modern JavaScript features. Used a custom .cjs configuration file to ensure compatibility.
+Challenge 3: Setting up Jest with Vite and handling component testing
+Solution: Configured custom Jest setup for Vite and used React Testing Library for component tests
 
 # Deployment
-Frontend Deployment (Netlify)
+Vercel Deployment
 ```bash
-https://eshmika-af.netlify.app/
+https://af-assignment-02-frontend.vercel.app/
 ```
-
-Backend Deployment
-
