@@ -124,7 +124,7 @@ const Favorites = () => {
       </button>
       
       <div className="flex items-center mb-8">
-        <h1 className="text-3xl font-bold text-white">
+        <h1 className="text-3xl font-bold text-gray-900">
           Your Favorite Countries
         </h1>
         <span className="bg-blue-600 text-white text-sm px-3 py-1 rounded-full ml-4">
