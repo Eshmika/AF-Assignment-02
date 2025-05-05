@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, []);
 
-  axios.defaults.baseURL = "http://localhost:5000/api";
+  axios.defaults.baseURL = `${import.meta.env.VITE_BACKEND_URL}/api`;
   axios.defaults.withCredentials = true;
 
   // Add token to requests if user is logged in
